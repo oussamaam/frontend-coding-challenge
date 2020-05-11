@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RepoDataService } from '../../services/repo-data.service';
 
 @Component({
   selector: 'app-repository',
@@ -14,9 +15,17 @@ export class RepositoryComponent implements OnInit {
   nbIssues="18";
   timeInterval=5;
   repoUrl="https://github.com/bradtraversy/design-resources-for-developers";
-  constructor() { }
+  constructor(private RepoData:  RepoDataService) { }
 
   ngOnInit(): void {
+    this.RepoData.getByPage(1).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log("err getting repos");
+      }
+    )
   }
 
   goToLink(url: string){

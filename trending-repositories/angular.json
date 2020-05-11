@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "trending-repositories"
+    }
+  },
+  "defaultProject": "trending-repositories",
+  "cli": {
+    "analytics": "7f75d1a6-1df8-4ea1-929c-00d09ac936eb"
+  }
 }
