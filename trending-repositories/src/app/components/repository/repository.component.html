@@ -1,0 +1,23 @@
+<div class="card-container">
+    <div style="width: 100%; margin-top: 20px;">
+      <div class="card" (click)="goToLink(repoUrl)"  >
+        <div class="cardAvatar">
+            <img [src]="ownerAvatar" 
+            />
+        </div>
+        
+        <div>
+          <h2>
+            {{name}} 
+          </h2>
+          <p>
+              {{description}}
+          </p>
+          <div class="cardInfo" >
+             <span class="borded-box"> stars : {{nbStars}} </span> 
+             <span class="borded-box"> Issues:{{nbIssues}} </span> 
+              submited {{timeInterval}} day ago  by <b> {{ownerName}} </b>
+          </div>
+        </div>
+      </div>
+    </div>
