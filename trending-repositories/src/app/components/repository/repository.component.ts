@@ -10,11 +10,15 @@ export class RepositoryComponent implements OnInit {
   repositories:repository[];
   now: Date=new Date();
   currentPage:number=1;
+  perPage:number=10;
+  maxPages:number=1000/this.perPage;
 
-  constructor(private RepoData:  RepoDataService) { }
+  constructor(private RepoData:  RepoDataService) { 
+    RepoData.perPage=this.perPage;
+  }
 
   ngOnInit(): void {
-   this.getTrendingRepo(1);
+   this.getTrendingRepo(this.currentPage);
   }
 
   goToLink(url: string){
@@ -29,6 +33,17 @@ export class RepositoryComponent implements OnInit {
         console.log("error in getting request ",err);
       }
     )
+  }
+  updatlist(){
+    this.getTrendingRepo(this.currentPage);
+  }
+  plusP(){
+    this.currentPage++;
+    this.getTrendingRepo(this.currentPage);
+  }
+  minusP(){
+    this.currentPage--;
+    this.getTrendingRepo(this.currentPage);
   }
   getRepository(repo) {
     let obj = {};

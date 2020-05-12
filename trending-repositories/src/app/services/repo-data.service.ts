@@ -7,6 +7,7 @@ import {Observable} from "rxjs";
 })
 export class RepoDataService {
   baseUrl : string="https://api.github.com/search/";
+  perPage:Number=10;
   lastMonth:string;
   constructor(private  http: HttpClient) { 
     let d = new Date();
@@ -15,6 +16,6 @@ export class RepoDataService {
   }
 
   getByPage(p): Observable<any> {
-    return this.http.get<Observable<any>>(this.baseUrl + 'repositories?q=created:>'+this.lastMonth+'&sort=stars&order=desc&page='+p);
+    return this.http.get<Observable<any>>(this.baseUrl + 'repositories?q=created:>'+this.lastMonth+'&sort=stars&per_page='+this.perPage+'&order=desc&page='+p);
   }
 }

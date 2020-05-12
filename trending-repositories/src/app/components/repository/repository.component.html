@@ -1,12 +1,14 @@
 <div class="card-container">
-    <div style="width: 100%; margin-top: 20px;">
+    <div class="paginate" > Page <input class="paginate-input" type="text" (change)="updatlist()" [(ngModel)]="currentPage" > / {{maxPages}}  
+        <div class="paginate-button"> <button title="previous" (click)="minusP()"> 	&lt; </button> <button title="next" (click)="plusP()"> 	&gt; </button> </div> </div>
+    <div class="cardList" >
         <div class="card" *ngFor="let r of repositories;let i =index;" title="open this repository github" (click)="goToLink(r.repoUrl)"  >
             <div class="cardAvatar">
                 <img [src]="r.ownerAvatar" />
             </div>
             <div>
                 <h2>
-                    {{r.name}} <span class="orderCard" > #{{  (currentPage-1)*30 +i+1}}  </span>
+                    {{r.name}} <span class="orderCard" > #{{  (currentPage-1)*perPage +i+1}}  </span>
 
                 </h2>
                 <p>
