@@ -1,27 +1,68 @@
 # TrendingRepositories
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.5.
 
-## Development server
+## Idea of the App 
+This is a small webapp built with Angular that interacts with an actual sorted JSON data directly 
+from the Github API. This app will demonstrate many features including listing the most starred Github repos 
+that were created in the last 30 days one repository per row, showing details for each repo ( repository name, 
+description, number of stars for the repo, number of issues for the repo, username and avatar of the owner ) ,
+and pagination.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Quick start
 
-## Code scaffolding
+```bash
+# clone the repo
+git clone https://github.com/oussamaam/frontend-coding-challenge.git
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# change directory
+cd frontend-coding-challenge/trending-repositories
 
-## Build
+# install the repo with npm
+npm install
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+# start the server
+npm start
 
-## Running unit tests
+```
+in your browser go to [http://localhost:4200](http://localhost:4200) 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Prerequisites
+What do you need to run this app:
+* Angular version 9.1.4
+* Angular CLI version 9.1.5
+* Typescript version 3.8.3
+* Node.js version 12.16.3 LTS (Long Term Support)
+* npm (node package manager) version 6.14.4
 
-## Running end-to-end tests
+## Getting Started
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+### Installation
+* `npm install` (installing dependencies)
+* `npm outdated` (verifying dependencies)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Developpement
+* `npm run start`
+* in your browser [http://localhost:4200](http://localhost:4200) 
+
+### Compilation
+* `npm run build`       ( without SSR)
+* `npm run build:ssr`   ( with SSR)
+
+### Production
+* `npm run serve:ssr`
+* in your browser [http://localhost:4000](http://localhost:4000) 
+
+### Prototype Bootstrap
+* `change directory` cd ui
+* launch html pages in your browser
+
+### Tests
+* `npm run lint`
+* `npm run test`
+* `npm run e2e`
+
+### Author
+* Updated : 12/05/2020
+* Author  : [oussamaam](https://github.com/oussamaam)
+
