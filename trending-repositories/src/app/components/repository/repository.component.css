@@ -37,8 +37,11 @@
     border: 2px solid;
   }
  
-  .cardInfo>.borded-box{
+  .card .cardInfo>.borded-box{
     border: 2px solid;
     padding: 0px 2px;
     margin-right: 4px;
+  }
+  .card .orderCard{
+      color: red;font-size: 20px;float: right;
   }
