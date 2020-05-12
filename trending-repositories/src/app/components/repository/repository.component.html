@@ -1,24 +1,25 @@
-<div class="card-container">
-    <div class="paginate" > Page <input class="paginate-input" type="number" ng-pattern="/^[0-9]*$/" (change)="updatlist()" [(ngModel)]="currentPage" > / {{maxPages}}  
-        <div class="paginate-button"> <button title="previous" [disabled]="mvalid(currentPage)" (click)="minusP()"> 	&lt; </button> <button title="next" [disabled]="pvalid(currentPage)" (click)="plusP()"> 	&gt; </button> </div> </div>
-    <div class="cardList" >
-        <div class="card" *ngFor="let r of repositories;let i =index;" title="open this repository github" (click)="goToLink(r.repoUrl)"  >
+<div class="card-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()" [scrollWindow]="false">
+    <div class="cardList">
+        <div class="card" *ngFor="let r of repositories;let i =index;" title="open this repository github"
+            (click)="goToLink(r.repoUrl)">
             <div class="cardAvatar">
                 <img [src]="r.ownerAvatar" />
             </div>
             <div>
                 <h2 class="cardTitle">
-                    {{r.name}} <span class="orderCard" > #{{  (lastcurrentPage-1)*perPage +i+1}}  </span>
+                    {{r.name}} <span class="orderCard"> #{{i+1}} </span>
 
                 </h2>
                 <p>
                     {{r.description}}
                 </p>
-                <div class="cardInfo" >
-                    <span class="borded-box"> stars : {{r.nbStars}} </span> 
-                    <span class="borded-box"> Issues:{{r.nbIssues}} </span> 
-                    submited {{r.timeInterval}} day ago  by <b> {{r.ownerName}} </b>
+                <div class="cardInfo">
+                    <span class="borded-box"> stars : {{r.nbStars}} </span>
+                    <span class="borded-box"> Issues:{{r.nbIssues}} </span>
+                    submited {{r.timeInterval}} day ago by <b> {{r.ownerName}} </b>
                 </div>
             </div>
-      </div>
+        </div>
     </div>
+</div>
