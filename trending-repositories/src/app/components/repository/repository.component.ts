@@ -10,6 +10,7 @@ export class RepositoryComponent implements OnInit {
   repositories:repository[];
   now: Date=new Date();
   currentPage:number=1;
+  lastcurrentPage:number=1;
   perPage:number=10;
   maxPages:number=1000/this.perPage;
 
@@ -28,6 +29,7 @@ export class RepositoryComponent implements OnInit {
     this.RepoData.getByPage(p).subscribe(
       (res) => {
         this.repositories=res.items.map(repo => this.getRepository(repo));
+        this.lastcurrentPage=p;
       },
       (err) => {
         console.log("error in getting request ",err);
@@ -35,7 +37,16 @@ export class RepositoryComponent implements OnInit {
     )
   }
   updatlist(){
-    this.getTrendingRepo(this.currentPage);
+    if (this.isBestween(this.currentPage)){
+      this.getTrendingRepo(this.currentPage);
+    }
+    else{
+      this.currentPage=this.lastcurrentPage
+    }
+    
+  }
+  isBestween(p){
+    return p>=1 && p<=this.maxPages
   }
   plusP(){
     this.currentPage++;
@@ -44,6 +55,12 @@ export class RepositoryComponent implements OnInit {
   minusP(){
     this.currentPage--;
     this.getTrendingRepo(this.currentPage);
+  }
+  mvalid(p){
+    return p<=1 || p>this.maxPages;
+  }
+  pvalid(p){
+    return p>=this.maxPages || p<1;
   }
   getRepository(repo) {
     let obj = {};

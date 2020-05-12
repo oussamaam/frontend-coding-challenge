@@ -19,9 +19,7 @@
   .card-container .cardList{
     width: 100%; margin-top: 20px;
   }
-  .card-container .card:not(:last-child) {
-    margin-right: 0;
-  }
+  
 
   .card-container .card {
     cursor: pointer;
@@ -38,7 +36,9 @@
     width: 100px;
     border: 2px solid;
   }
- 
+  .card .cardTitle{
+    margin-top: 2px;
+  }
   .card .cardInfo>.borded-box{
     border: 2px solid;
     padding: 0px 2px;
@@ -73,12 +73,37 @@
   }
   .paginate .paginate-button>button{
     border-radius: 4px;
-    background-color: #ffff;
-    border: 1px solid #c5c3c3;
+    border: 1px solid #0066cc;
+    background-color: #1976d2;
+    color: #ffffff;
     padding: 4px 10px;
     cursor: pointer;
     outline: none;
+    margin-right: 2px;
 }
+
 .paginate .paginate-button>button:hover{
-    background-color:  #e7e7e7;
+  border: 1px solid #0099cc;
+  background-color: #00aacc;
+  color: #ffffff;
+}
+.paginate .paginate-button>button[disabled] {
+  /* styles when the element is disabled */
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+.paginate .paginate-button>button[disabled]:hover {
+  /* styles when the element is disabled */
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
